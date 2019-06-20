@@ -6,7 +6,8 @@ addons:
   homebrew:
     packages:
       - make
-      - mactex
+    casks:
+      - mactex-no-gui
     update: true
 
 jobs:
