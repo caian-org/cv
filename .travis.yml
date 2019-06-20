@@ -1,18 +1,15 @@
-os: osx
 sudo: required
-language: minimal
+language: generic
 
-addons:
-  homebrew:
-    packages:
-      - make
-    casks:
-      - mactex-no-gui
-    update: true
+services:
+  - docker
+
+stages:
+  - compile
 
 jobs:
   include:
     - stage: compile
       name: "Compile documents"
       script:
-        - make
+        - docker build -t compiled_docs .
