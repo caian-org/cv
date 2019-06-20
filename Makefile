@@ -4,12 +4,12 @@ DOCS = $(wildcard *.tex)
 PDFS = $(wildcard *.pdf)
 
 clean:
-	rm -rf *.pdf *.log *.aux
+	@rm -rf *.pdf *.log *.aux
 
 compile:
-	$(foreach d, $(DOCS), xelatex -halt-on-error $(d);)
+	@docker build -t compiled_docs .
+	@docker run --name docs compiled_docs
+	@$(foreach d, $(DOCS), docker cp docs:/cv/$(subst :.tex,.pdf,$(strip $(d))) . ;)
 
 update:
-	$(foreach f, $(PDFS), \
-		aws s3 cp --acl public-read \
-		"./$(f)" "s3://bucket/$(f)")
+	@$(foreach f, $(PDFS), aws s3 cp --acl public-read "./$(f)" "s3://bucket/$(f)")
