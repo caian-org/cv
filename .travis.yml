@@ -1,0 +1,14 @@
+sudo: required
+language: minimal
+
+addons:
+  apt:
+    packages:
+      - texlive-full
+
+jobs:
+  include:
+    - stage: compile
+      name: "Compile documents"
+      script:
+        - make
