@@ -3,8 +3,11 @@
 DOCS = $(wildcard *.tex)
 PDFS = $(wildcard *.pdf)
 
+clean:
+	rm -rf *.pdf *.log *.aux
+
 compile:
-	$(foreach d, $(DOCS), xelatex $(d);)
+	$(foreach d, $(DOCS), xelatex -halt-on-error $(d);)
 
 update:
 	$(foreach f, $(PDFS), \
