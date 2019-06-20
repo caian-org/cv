@@ -1,0 +1,150 @@
+\documentclass{article}
+
+% remove numbering, header and footer
+\thispagestyle{empty}
+
+
+% ---------- packages
+
+% required to set page size and margins
+\usepackage{geometry}
+
+% required by 'definecolor'
+\usepackage{xcolor}
+
+% required by 'setsansfont' and 'setmainfont'
+% should be compiled with XeLaTeX
+\usepackage{fontspec}
+
+% required by 'titleformat'
+\usepackage{titlesec}
+
+% required to customize the title
+\usepackage{titling}
+
+
+% ---------- page size & margins
+
+\geometry {
+    a4paper,
+    left   = 2cm,
+    right  = 2cm,
+    top    = 2cm,
+    bottom = 2cm
+}
+
+
+% ---------- fonts & colors
+
+% define color 'Cyan' as #338e93
+\definecolor{Cyan}{HTML}{338e93}
+
+% define color 'Grey' as #666666
+\definecolor{Grey}{HTML}{666666}
+
+% define the sans-serif font as 'Lato'
+\setsansfont{Lato}
+
+% define the serif font as 'Merriweather'
+\setmainfont{Merriweather}
+
+
+% ---------- title
+
+\renewcommand{\maketitle} {
+    \begin{center}
+    \bfseries
+    \huge
+    \theauthor
+    \end{center}
+}
+
+
+% ---------- headings
+
+% 'H1' heading formatting
+\titleformat{\section}
+{\sffamily \color{Cyan} \large \bfseries \uppercase}
+{}{0cm}{}
+
+% 'H2' heading formatting
+\titleformat{\subsection}
+{\bfseries}
+{}{0cm}{}
+
+% 'H3' heading formatting
+\titleformat{\subsubsection}[runin]
+{\bfseries}
+{}{0cm}{}
+
+
+% ---------- document starts here...
+
+\begin{document}
+\title{CV}
+\author{Caian R. Ertl}
+
+\maketitle
+
+
+% --------------------------------------------------
+
+\section{Work Experience}
+
+\subsection{Hvar}
+\subsection{Rivendel}
+\subsection{Alest}
+
+
+% --------------------------------------------------
+
+\section{Technical Skills}
+
+\subsection{Languages}
+
+Python, JavaScript, Golang, C, Crystal, Shell Script, Vimscript, {\LaTeX}.
+
+
+\subsection{Cloud Computing}
+
+\subsubsection{AWS}
+
+EC2, S3, RDS, VPC, Route53, Lambda, API Gateway, Developer Tools, CloudWatch.
+
+\subsubsection{Azure}
+
+Bot Services, LUIS, Azure Devops, Function App.
+
+\subsubsection{Heroku}
+
+
+\subsection{DevOps}
+
+Ansible, Terraform, Docker, Jenkins, Travis-CI, Drone-CI, Gitlab-CI.
+
+
+% --------------------------------------------------
+
+\section{Side Projects}
+
+\subsection{dora}
+\subsection{msgboi}
+\subsection{tpsp}
+\subsection{ansible-stow}
+
+
+% --------------------------------------------------
+
+\section{Education}
+
+\subsection{UAM}
+
+
+% --------------------------------------------------
+
+\section{Languages}
+
+\subsection{Portuguese}
+\subsection{English}
+
+\end{document}
