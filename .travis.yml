@@ -15,5 +15,6 @@ jobs:
         - pip3 install awscli --upgrade
       script:
         - make build
-        - make update
+      after_success:
+        - make upload
       if: tag IS present
