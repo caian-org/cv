@@ -11,6 +11,8 @@ jobs:
   include:
     - stage: compile
       name: "Compile documents"
+      install:
+        - pip3 install awscli --upgrade
       script:
         - make build
         - make update
