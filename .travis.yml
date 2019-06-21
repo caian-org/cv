@@ -13,5 +13,5 @@ jobs:
       name: "Compile documents"
       script:
         - make build
-        - make upload
+        - make update
       if: tag IS present
