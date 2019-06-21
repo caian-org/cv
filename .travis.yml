@@ -17,3 +17,4 @@ jobs:
         - make build
       after_success:
         - make upload
+      if: tag IS present
