@@ -13,3 +13,4 @@ jobs:
       name: "Compile documents"
       script:
         - make build
+        - make upload
