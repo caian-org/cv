@@ -11,6 +11,7 @@ build:
 	@docker build -t compiled_docs .
 	@docker run --name docs compiled_docs
 	@$(foreach d, $(DOCS), docker cp docs:/cv/$(subst :.tex,.pdf,$(strip $(d))) . ;)
+	@ls -lash
 
 upload:
 	@$(foreach f, $(PDFS), aws s3 cp --acl public-read "./$(f)" "s3://caian-org/$(f)" ;)
