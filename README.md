@@ -2,7 +2,7 @@
 
 <img src="logo.svg" height="210px" align="right"/>
 
-My curriculum vitae (résumé) written in LaTeX.
+My curriculum vitae (_résumé_) written in __LaTeX__.
 
 [![Build Status][travis-shield]][travis-url]
 
