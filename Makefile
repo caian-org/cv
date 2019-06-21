@@ -1,3 +1,4 @@
+.PHONY: update
 .DEFAULT_GOAL := compile
 
 DOCS = $(wildcard *.tex)
