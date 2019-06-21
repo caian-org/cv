@@ -1,4 +1,4 @@
-.PHONY: update
+.PHONY: upload
 .DEFAULT_GOAL := compile
 
 DOCS = $(wildcard *.tex)
@@ -12,7 +12,7 @@ build:
 	@docker run --name docs compiled_docs
 	@$(foreach d, $(DOCS), docker cp docs:/cv/$(subst :.tex,.pdf,$(strip $(d))) . ;)
 
-update:
+upload:
 	@$(foreach f, $(PDFS), aws s3 cp --acl public-read "./$(f)" "s3://caian-org/$(f)" ;)
 
 clean:
