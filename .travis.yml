@@ -14,3 +14,4 @@ jobs:
       script:
         - make build
         - make upload
+      if: tag IS present
