@@ -15,4 +15,4 @@ update:
 	@$(foreach f, $(PDFS), aws s3 cp --acl public-read "./$(f)" "s3://caian-org/$(f)" ;)
 
 clean:
-	@rm -rf *.pdf *.log *.aux
+	@rm -rf *.pdf *.log *.aux *.out
