@@ -13,7 +13,7 @@ My curriculum vitae (_résumé_) written in __LaTeX__.
 ## About
 
 My general _résumé_, in both english and portuguese, written in __LaTeX__ and
-compiled with __XeLaTeX__. This project also have a tiny pipeline which
+compiled with __LuaTeX__. This project also have a tiny pipeline which
 compiles the documents and push them into my public S3 bucket. The compilation
 is made through a docker container which have everything needed (about 4 GB of
 stuff).
