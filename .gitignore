@@ -2,6 +2,7 @@
 *.aux
 *.log
 *.pdf
+*.out
 
 # ctags
 tags
