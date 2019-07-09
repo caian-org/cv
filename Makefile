@@ -1,10 +1,17 @@
 .DEFAULT_GOAL := compile
 
-DOCS = $(wildcard *.tex)
+DOCS = $(wildcard locales/*.tex)
 PDFS = $(wildcard *.pdf)
 
+pt: DOCS=locales/pt_BR.tex
+pt: compile
+
 compile:
-	@$(foreach d, $(DOCS), xelatex -halt-on-error $(d) ;)
+	$(foreach d, $(DOCS), \
+		xelatex \
+		-halt-on-error \
+		-jobname "cv-$(basename $(notdir $(d)))" \
+		"\input{$(d)} \input{cv.tex}" ;)
 
 build:
 	@docker build -t compiled_docs .
