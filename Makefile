@@ -11,7 +11,7 @@ en: compile
 
 compile:
 	$(foreach d, $(DOCS), \
-		xelatex \
+		lualatex \
 		-halt-on-error \
 		-jobname "cv-$(basename $(notdir $(d)))" \
 		"\input{$(d)} \input{cv.tex}" ;)
