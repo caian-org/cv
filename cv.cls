@@ -24,7 +24,7 @@
 %----------------------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{developercv}[2019/01/28 Developer CV class v1.0]
+\ProvidesClass{cv}[2019/01/28 Developer CV class v1.0]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}} % Pass through any options to the base class
 \ProcessOptions\relax % Process given options
