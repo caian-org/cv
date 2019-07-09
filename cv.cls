@@ -2,7 +2,7 @@
 %
 % Developer CV
 % LaTeX Class
-% Version 1.0 (28/1/19)
+% Version 1.1 (8/7/19)
 %
 % This class originates from:
 % http://www.LaTeXTemplates.com
@@ -11,6 +11,7 @@
 % Jan Vorisek (jan@vorisek.me)
 % Based on a template by Jan Küster (info@jankuester.com)
 % Modified for LaTeX Templates by Vel (vel@LaTeXTemplates.com)
+% Modified for personal usage by Caian (hi@caian.org)
 %
 % License:
 % The MIT License (see included LICENSE file)
