@@ -6,6 +6,9 @@ PDFS = $(wildcard *.pdf)
 pt: DOCS=locales/pt_BR.tex
 pt: compile
 
+en: DOCS=locales/en_US.tex
+en: compile
+
 compile:
 	$(foreach d, $(DOCS), \
 		xelatex \
