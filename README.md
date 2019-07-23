@@ -21,6 +21,8 @@ stuff).
 
 ## Preview
 
+The "header" segment of it:
+
 <img src="https://caian-org.s3.amazonaws.com/preview.png" align="center"/>
 
 ### Final documents
