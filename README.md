@@ -19,6 +19,19 @@ is made through a docker container which have everything needed (about 4 GB of
 stuff).
 
 
+## Preview
+
+<img src="https://caian-org.s3.amazonaws.com/preview.png" align="center"/>
+
+### Final documents
+
+- [`cv-en_US.pdf`][en_US]
+- [`cv-pt_BR.pdf`][pt_BR]
+
+[en_US]: https://caian-org.s3.amazonaws.com/cv-en_US.pdf
+[pt_BR]: https://caian-org.s3.amazonaws.com/cv-pt_BR.pdf
+
+
 ## Why?
 
 ```
