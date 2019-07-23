@@ -53,7 +53,7 @@ licensed by [CC 3.0 BY][cc3].
 
 ## License
 
-__The MIT License__ (see included [LICENSE](LICENSE.md) file)
+__The MIT License__ (see included [LICENSE](LICENSE) file)
 
 Authors:
 - Jan Vorisek (jan@vorisek.me)
