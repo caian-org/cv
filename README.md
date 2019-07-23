@@ -53,6 +53,16 @@ licensed by [CC 3.0 BY][cc3].
 
 ## License
 
+__The MIT License__ (see included [LICENSE](LICENSE.md) file)
+
+Authors:
+- Jan Vorisek (jan@vorisek.me)
+- Based on a template by Jan Küster (info@jankuester.com)
+- Modified for LaTeX Templates by Vel (vel@LaTeXTemplates.com)
+- Modified for personal usage by Caian (hi@caian.org)
+
+### Kopimi!
+
 [![Kopimi Logo][kopimi-logo]][kopimi-url]
 
 In the spirit of _freedom of information_, I encourage you to fork, modify,
