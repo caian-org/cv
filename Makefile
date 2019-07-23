@@ -10,7 +10,7 @@ en: DOCS=locales/en_US.tex
 en: compile
 
 compile:
-	$(foreach d, $(DOCS), \
+	@$(foreach d, $(DOCS), \
 		lualatex \
 		-halt-on-error \
 		-jobname "cv-$(basename $(notdir $(d)))" \
@@ -19,10 +19,12 @@ compile:
 build:
 	@docker build -t compiled_docs .
 	@docker run --name docs compiled_docs
-	@$(foreach d, $(DOCS), docker cp "docs:/home/alan/cv/cv-$(basename $(notdir $(d))).pdf" . ;)
+	@$(foreach d, $(DOCS), \
+		docker cp "docs:/home/alan/cv/cv-$(basename $(notdir $(d))).pdf" . ;)
 
 update:
-	@$(foreach f, $(PDFS), aws s3 cp --acl public-read "./$(f)" "s3://caian-org/$(f)" ;)
+	@$(foreach f, $(PDFS), \
+		aws s3 cp --acl public-read "./$(f)" "s3://caian-org/$(f)" ;)
 
 clean:
 	@rm -rf *.pdf *.log *.aux *.out
