@@ -1,0 +1,25 @@
+name: upload
+
+on:
+  push:
+    tags:
+      - "v*"
+    paths-ignore:
+      - "**.md"
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build LaTeX document
+        uses: ./.github/actions/build-latex-document
+
+      - name: Upload documents
+        run: make update
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

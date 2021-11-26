@@ -1,0 +1,19 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - "**.md"
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build LaTeX document
+        uses: ./.github/actions/build-latex-document

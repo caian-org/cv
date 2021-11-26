@@ -1,0 +1,20 @@
+name: build-latex-document
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Update awscli
+      run: pip3 install awscli --upgrade
+      shell: bash
+
+    - name: Build
+      run: make build
+      shell: bash
