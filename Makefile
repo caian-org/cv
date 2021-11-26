@@ -17,8 +17,8 @@ compile:
 		"\input{$(d)} \input{cv.tex}" ;)
 
 build:
-	@docker build -t compiled_docs .
-	@docker run --name docs compiled_docs
+	@docker build -t compiled-docs .
+	@docker run --name docs compiled-docs
 	@$(foreach d, $(DOCS), \
 		docker cp "docs:/home/alan/cv/cv-$(basename $(notdir $(d))).pdf" . ;)
 
