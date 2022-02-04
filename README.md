@@ -27,8 +27,8 @@ stuff).
 - [`cv-en_US.pdf`][en_US]
 - [`cv-pt_BR.pdf`][pt_BR]
 
-[en_US]: https://caian-org.s3.amazonaws.com/cv-en_US.pdf
-[pt_BR]: https://caian-org.s3.amazonaws.com/cv-pt_BR.pdf
+[en_US]: https://caian-org.s3.amazonaws.com/cv/cv-en_US.pdf
+[pt_BR]: https://caian-org.s3.amazonaws.com/cv/cv-pt_BR.pdf
 
 
 ## License
