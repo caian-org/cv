@@ -1,11 +1,14 @@
 name: upload
 
 on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 8 * * 0'
+
   push:
-    tags:
-      - "v*"
-    paths-ignore:
-      - "**.md"
+    tags: 'v*'
+    paths-ignore: '**.md'
 
 jobs:
   upload:
