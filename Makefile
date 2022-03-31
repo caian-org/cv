@@ -20,7 +20,7 @@ build:
 	@docker build -t compiled-docs .
 	@docker run --name docs compiled-docs
 	@$(foreach d, $(DOCS), \
-		docker cp "docs:/home/alan/cv/cv-$(basename $(notdir $(d))).pdf" . ;)
+		docker cp "docs:/home/turing/cv/cv-$(basename $(notdir $(d))).pdf" . ;)
 
 update:
 	@$(foreach f, $(PDFS), \

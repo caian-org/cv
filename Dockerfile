@@ -1,7 +1,7 @@
 FROM caian/arch-texlive:latest
-MAINTAINER Caian R. Ertl <hi@caian.org>
+LABEL maintainer="Caian Ertl <hi@caian.org>"
 
-COPY --chown=alan:alan . /home/alan/cv
-USER alan
-WORKDIR /home/alan/cv
+COPY --chown=turing:turing . /home/turing/cv
+USER turing
+WORKDIR /home/turing/cv
 RUN make
