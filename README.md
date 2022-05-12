@@ -26,14 +26,3 @@ You can see the compiled, final documents here:
 
 [en_US]: https://caian-org.s3.amazonaws.com/cv/cv-en_US.pdf
 [pt_BR]: https://caian-org.s3.amazonaws.com/cv/cv-pt_BR.pdf
-
-
-## License
-
-__The MIT License__ (see included [LICENSE](LICENSE) file)
-
-Authors:
-- Jan Vorisek (jan@vorisek.me)
-- Based on a template by Jan Küster (info@jankuester.com)
-- Modified for LaTeX Templates by Vel (vel@LaTeXTemplates.com)
-- Modified for personal usage by Caian (hi@caian.org)
