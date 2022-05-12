@@ -1,9 +1,9 @@
-# curriculum vitae
-
 [![Build & Check][gh-bnc-shield]][gh-bnc-url]
 [![GitHub tag][tag-shield]][tag-url]
 
-<img src=".github/space.gif" height="350px" align="right"/>
+# curriculum vitae
+
+<img src=".github/space.gif" height="320px" align="right"/>
 
 My general résumé, in both english and portuguese, written in [__LaTeX__][latex] and compiled with [__LuaTeX__][luatex].
 This project also have a tiny pipeline which compiles the documents and push them into my public S3 bucket. The
