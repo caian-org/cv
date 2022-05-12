@@ -10,10 +10,10 @@ ENV DOCKER_HOME_DIR $DOCKER_HOME_DIR
 
 FROM base AS document
 WORKDIR ${DOCKER_HOME_DIR}
+
+USER root
 COPY document .
 RUN chown -R "${DOCKER_DEFAULT_USER}:${DOCKER_DEFAULT_USER}" "${DOCKER_HOME_DIR}"
 
-
-FROM document AS build
 USER turing
 RUN make
