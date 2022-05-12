@@ -14,11 +14,16 @@ You can see the compiled, final documents here:
 - [`cv-en_US.pdf`][en_US] _(english translation)_
 - [`cv-pt_BR.pdf`][pt_BR] _(portuguese translation)_
 
+
+## Build
+
 To build on your host machine, considering you're already have all the required dependencies (LaTeX, LuaTeX,
 [FontAwesome][fontawesome] and [Source Sans Pro][source-sans] font), just run `make` inside the `document` directory.
-One PDF document will be built for each locale/translation. If you prefer not to download and install everything on
-host, the [`Dockerfile`](Dockerfile) has a simple recipe for it (again, be aware that the base image is __VERY LARGE__
-and depending on your network and machine, it can take even hours to download & decompress)
+One PDF document will be built for each locale/translation.
+
+If you prefer not to download and install everything on host, the [`Dockerfile`](Dockerfile) has a simple recipe for it
+(again, be aware that the base image is __VERY LARGE__ and depending on your network and machine, it can take even hours
+to download & decompress).
 
 [gh-bnc-shield]: https://img.shields.io/github/workflow/status/caian-org/cv/build?label=build&logo=github&style=for-the-badge
 [gh-bnc-url]: https://github.com/caian-org/cv/actions/workflows/build.yml
