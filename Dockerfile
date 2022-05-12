@@ -1,7 +1,19 @@
-FROM caian/arch-texlive:latest
+FROM caian/arch-texlive:latest AS base
 LABEL maintainer="Caian Ertl <hi@caian.org>"
 
-COPY --chown=turing:turing . /home/turing/cv
+ARG DOCKER_DEFAULT_USER=turing
+ENV DOCKER_DEFAULT_USER $DOCKER_DEFAULT_USER
+
+ARG DOCKER_HOME_DIR=/home/${DOCKER_DEFAULT_USER}
+ENV DOCKER_HOME_DIR $DOCKER_HOME_DIR
+
+
+FROM base AS document
+WORKDIR ${DOCKER_HOME_DIR}
+COPY document .
+RUN chown -R "${DOCKER_DEFAULT_USER}:${DOCKER_DEFAULT_USER}" "${DOCKER_HOME_DIR}"
+
+
+FROM document AS build
 USER turing
-WORKDIR /home/turing/cv
 RUN make
