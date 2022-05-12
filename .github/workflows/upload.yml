@@ -1,28 +1,36 @@
 name: upload
 
+
 on:
-  workflow_dispatch:
-
-  schedule:
-    - cron: '0 8 * * 0'
-
   push:
-    tags: 'v*'
     paths-ignore: '**.md'
+    tags: v[0-9]+.[0-9]+.[0-9]+
+
 
 jobs:
   upload:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
 
       - name: Build LaTeX document
         uses: ./.github/actions/build-latex-document
+        with:
+          docker-image-tag: compiled-docs:latest
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Update awscli
+        run: pip3 install awscli --upgrade
 
       - name: Upload documents
-        run: make update
+        run: cd document && make update-docs
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

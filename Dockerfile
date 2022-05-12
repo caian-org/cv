@@ -1,7 +1,8 @@
 FROM caian/arch-texlive:latest
 LABEL maintainer="Caian Ertl <hi@caian.org>"
 
-COPY --chown=turing:turing . /home/turing/cv
+WORKDIR /home/turing
 USER turing
-WORKDIR /home/turing/cv
+COPY --chown=turing:turing document .
+
 RUN make
