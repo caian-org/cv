@@ -1,20 +1,24 @@
 name: build
 
-on:
-  workflow_dispatch:
 
+on:
   push:
-    branches: master
     paths-ignore: '**.md'
+    branches: edge
+
+  workflow_dispatch:
 
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
 
       - name: Build LaTeX document
         uses: ./.github/actions/build-latex-document
+        with:
+          docker-image-tag: compiled-docs:latest

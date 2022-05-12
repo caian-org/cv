@@ -1,20 +1,22 @@
 name: build-latex-document
 
+
+inputs:
+  docker-image-tag:
+    required: true
+
+
 runs:
   using: composite
   steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Setup Python
-      uses: actions/setup-python@v2
+    - name: Build image
+      uses: docker/build-push-action@v2
       with:
-        python-version: '3.9'
-
-    - name: Update awscli
-      run: pip3 install awscli --upgrade
-      shell: bash
+        context: .
+        push: false
+        load: true
+        tags: ${{ inputs.docker-image-tag }}
 
     - name: Build
-      run: make build
+      run: cd document && make build-docs
       shell: bash
