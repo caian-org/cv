@@ -28,8 +28,8 @@ If you prefer not to download and install everything on host, the [`Makefile`](d
 (again, be aware that the base image is __VERY LARGE__ and depending on your network and machine, it can take even hours
 to download & decompress). Just `make build-image` and `make build-docs` inside the `document` directory.
 
-[gh-bnc-shield]: https://img.shields.io/github/workflow/status/caian-org/cv/build?label=build&logo=github&style=for-the-badge
-[gh-bnc-url]: https://github.com/caian-org/cv/actions/workflows/build.yml
+[gh-bnc-shield]: https://img.shields.io/github/workflow/status/caian-org/cv/upload?label=build%20and%20update&logo=github&style=for-the-badge
+[gh-bnc-url]: https://github.com/caian-org/cv/actions/workflows/upload.yml
 
 [tag-shield]: https://img.shields.io/github/tag/caian-org/cv.svg?logo=git&logoColor=FFF&style=for-the-badge
 [tag-url]: https://github.com/caian-org/cv/releases
