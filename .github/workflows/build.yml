@@ -6,6 +6,11 @@ on:
     paths-ignore: '**.md'
     branches: edge
 
+  pull_request:
+    branches: '*'
+    tags: '*'
+    paths-ignore: '**.md'
+
   workflow_dispatch:
 
 
