@@ -1,107 +1,248 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Developer CV
-% LaTeX Template
-% Version 1.1 (8/7/19)
-%
-% This template originates from:
-% http://www.LaTeXTemplates.com
-%
-% Authors:
-% Jan Vorisek (jan@vorisek.me)
-% Based on a template by Jan Küster (info@jankuester.com)
-% Modified for LaTeX Templates by Vel (vel@LaTeXTemplates.com)
-% Modified for personal usage by Caian (hi@caian.org)
-%
-% License:
-% The MIT License (see included LICENSE file)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------
+% LaTeX Resume for Software Engineers
+% Author : Leslie Cheng
+% License : MIT
+%-------------------------------------
 
+\documentclass[letterpaper,12pt]{article}[leftmargin=*]
 
-%----------------------------------------------------------------------------------------
-%   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
+\usepackage[empty]{fullpage}
+\usepackage{enumitem}
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \usepackage[xetex]{hyperref}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[pdftex]{hyperref}
+\fi
+\usepackage{fontawesome}
+\usepackage[sfdefault,light]{FiraSans}
+\usepackage{anyfontsize}
+\usepackage{xcolor}
+\usepackage{tabularx}
 
-\documentclass[9pt]{cv} % Default font size, values from 8-12pt are recommended
+%-------------------------------------------------- SETTINGS HERE --------------------------------------------------
+% Header settings
+\def \fullname {Caian Ertl}
+\def \subtitle {Senior backend engineer}
+
+\def \emailicon {\faEnvelope}
+\def \emaillink {mailto:hi@caian.org}
+\def \emailtext {hi@caian.org}
+
+\def \phoneicon {\faPhone}
+\def \phonetext {+1 (212) 555-4240}
+
+\def \githubicon {\faGithub}
+\def \githublink {https://github.com/upsetbit}
+\def \githubtext {upsetbit}
+
+\def \websiteicon {\faGlobe}
+\def \websitelink {https://caian.org}
+\def \websitetext {caian.org}
+
+\def \headertype {\singlecol} % \singlecol or \doublecol
+
+% Misc settings
+\def \entryspacing {-0pt}
+
+\def \bulletstyle {\faAngleRight}
+
+% Define colours
+\definecolor{primary}{HTML}{000000}
+\definecolor{secondary}{HTML}{0D47A1}
+\definecolor{accent}{HTML}{263238}
+\definecolor{links}{HTML}{1565C0}
+
+%-------------------------------------------------------------------------------------------------------------------
+
+% Defines to make listing easier
+\def \phone {\phoneicon \hspace{3pt}{ \phonetext}}
+\def \email {\emailicon \hspace{3pt}\href{\emaillink}{\emailtext}}
+\def \github {\githubicon \hspace{3pt}\href{\githublink}{\githubtext}}
+\def \website {\websiteicon \hspace{3pt}\href{\websitelink}{\websitetext}}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.55in}
+\addtolength{\evensidemargin}{-0.55in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.1in}
+
+% Define the link colours
+\hypersetup{
+    colorlinks=true,
+    urlcolor=links,
+}
+
+% Set the margin alignment
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%-------------------------
+% Custom commands
+
+% Sections
+\renewcommand{\section}[2]{\vspace{5pt}
+  \colorbox{secondary}{\color{white}\raggedbottom\normalsize\textbf{{#1}{\hspace{7pt}#2}}}
+}
+
+% Entry start and end, for spacing
+\newcommand{\resumeEntryStart}{\begin{itemize}[leftmargin=2.5mm]}
+\newcommand{\resumeEntryEnd}{\end{itemize}\vspace{\entryspacing}}
+
+% Itemized list for the bullet points under an entry, if necessary
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=4.5mm]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+% Resume item
+\renewcommand{\labelitemii}{\bulletstyle}
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+% Entry with title, subheading, date(s), and location
+\newcommand{\resumeEntryTSDL}[4]{
+  \vspace{-1pt}\item[]
+    \begin{tabularx}{0.97\textwidth}{X@{\hspace{60pt}}r}
+      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+      \textit{\color{accent}\small#3} & \textit{\color{accent}\small#4} \\
+    \end{tabularx}\vspace{-6pt}
+}
+
+% Entry with title and date(s)
+\newcommand{\resumeEntryTD}[2]{
+  \vspace{-1pt}\item[]
+    \begin{tabularx}{0.97\textwidth}{X@{\hspace{60pt}}r}
+      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+    \end{tabularx}\vspace{-6pt}
+}
+
+% Entry for special (skills)
+\newcommand{\resumeEntryS}[2]{
+  \item[]\small{
+    \textbf{\color{primary}#1 }{ #2 \vspace{-6pt}}
+  }
+}
+
+% Double column header
+\newcommand{\doublecol}[5]{
+  \begin{tabularx}{\textwidth}{Xr}
+    {
+      \begin{tabular}[c]{l}
+        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        {\textit{\subtitle}} % You could add a subtitle here
+      \end{tabular}
+    } & {
+      \begin{tabular}[c]{l@{\hspace{1.5em}}l}
+        {\small#3} & {\small#1} \\
+        {\small#4} & {\small#2} \\
+        {\small#5}
+      \end{tabular}
+    }
+  \end{tabularx}
+}
+
+% Single column header
+\newcommand{\singlecol}[5]{
+  \begin{tabularx}{\textwidth}{Xr}
+    {
+      \begin{tabular}[b]{l}
+        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        {\textit{\subtitle}} % You could add a subtitle here
+      \end{tabular}
+    } & {
+      \begin{tabular}[c]{l}
+        {\small#1} \\
+        {\small#2} \\
+        {\small#3} \\
+        {\small#4} \\
+        {\small#5}
+      \end{tabular}
+    }
+  \end{tabularx}
+}
+
 \begin{document}
+%-------------------------------------------------- BEGIN HERE --------------------------------------------------
 
+%---------------------------------------------------- HEADER ----------------------------------------------------
 
-%----------------------------------------------------------------------------------------
-%   TITLE AND CONTACT INFORMATION
-%----------------------------------------------------------------------------------------
+\headertype{\phone}{\email}{\website}{\github}{} % Set the order of items here
+\vspace{-10pt} % Set a negative value to push the body up, and the opposite
 
-\begin{minipage}[t]{0.725\textwidth}
-    \vspace{-\baselineskip} % Required for vertically aligning minipages
+%-------------------------------------------------- EDUCATION --------------------------------------------------
+\section{\faGraduationCap}{Education}
 
-    \colorbox{black}{{\HUGE\textcolor{white}{\textbf{\MakeUppercase{\cvfirstname}}}}}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Anhembi Morumbi University}{2015 -- 2018}
+      {Information Systems bachelor’s degree}{São Paulo, SP}
+  \resumeEntryEnd
 
-    \colorbox{black}{{\HUGE\textcolor{white}{\textbf{\MakeUppercase{\cvlastname}}}}}
+%-------------------------------------------------- SKILLS --------------------------------------------------
+\section{\faGears}{Skills}
+ \resumeEntryStart
+  \resumeEntryS{Programming } {Python, JavaScript, TypeScript, Go, Shell Script}
+  \resumeEntryS{Databases } {PostgreSQL, MongoDB, Redis}
+  \resumeEntryS{Cloud } {AWS -- Lambda, EC2, ECS, ECR, S3, IAM, CloudFront}
+  \resumeEntryS{Automation } {Terraform, Packer, Ansible, Docker, Docker Compose, GitLab-CI, GitHub Actions}
+  \resumeEntryS{Other (no experience) } {Custom parsers/compilers, C++ for RP2040, \LaTeX, Cloudflare Workers}
+ \resumeEntryEnd
 
-    \vspace{6pt}
+%-------------------------------------------------- EXPERIENCE --------------------------------------------------
+\section{\faPieChart}{Experience}
 
-    {\huge{\cvtitle}} % Career or current job title
-\end{minipage}
-\begin{minipage}[t]{0.275\textwidth}
-    \vspace{-\baselineskip}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {MZ Group}{Jun 2022 -- Present}
+      {Senior backend engineer \& staff member}{Remote}
+    \resumeItemListStart
+      \resumeItem {Mentored developers on architectural decisions and code-related issues}
+      \resumeItem {Led and implemented Terraform, drastically reducing provisioning and deployment times}
+      \resumeItem {Reduced AWS costs by migrating services to Lambda and minimizing over-allocated resources on ECS}
+      \resumeItem {Worked with other staff members to research, evaluate and implement new technologies}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-    % The first parameter is the FontAwesome icon name, the second is the box size and the third is the text
-    \icon{MapMarker}{12}{\cvlocation}\\
-    \icon{At}{12}{\href{mailto:\cvemail}{\cvemail}}\\
-    \icon{Github}{12}{\href{\cvgitlink}{\cvgituser}}\\
-\end{minipage}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {MZ Group}{Nov. 2019 -- May. 2022}
+      {Mid-level backend engineer}{Remote}
+    \resumeItemListStart
+      \resumeItem {Participated in the migration of data, schema, and queries from SQL Server to MongoDB}
+      \resumeItem {Designed and developed a microservice-based system for data scraping and ingestion}
+      \resumeItem {Maintained legacy codebases of REST APIs and queue-based workers used by many of our products}
+      \resumeItem {Assisted in various efforts to improve code quality, test coverage and build times}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-\vspace{0.1cm}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {HVAR Consulting}{May. 2019 -- Oct. 2019}
+      {Chatbot developer}{São Paulo, SP}
+    \resumeItemListStart
+        \resumeItem {Met with clients to understand and draft the expected interactions between the chatbot and users}
+        \resumeItem {Developed models and conversation flows using AI services -- DialogFlow, Azure LUIS and IBM Watson}
+        \resumeItem {Delivered entire projects and POCs, including the backend, integration tests and usage metrics}
+        \resumeItem {Post-implementation follow-ups to improve user experience and the chatbot's performance}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-
-%----------------------------------------------------------------------------------------
-%   INTRODUCTION, SKILLS AND TECHNOLOGIES
-%----------------------------------------------------------------------------------------
-
-\cvsect{\cvintrosecname}
-
-\begin{minipage}[t]{0.40\textwidth}
-    \vspace{-\baselineskip}
-
-    {\setstretch{1.0}\small{\cvintro}}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.65\textwidth}
-    \vspace{-\baselineskip}
-
-    \begin{skillset}
-        \skill{\cvskillseca}{\cvskillsa}
-        \skill{\cvskillsecb}{\cvskillsb}
-        \skill{\cvskillsecc}{\cvskillsc}
-        \skill{\cvskillsecd}{\cvskillsd}
-    \end{skillset}
-
-\end{minipage}
-
-\vspace{0.3cm}
-
-
-%----------------------------------------------------------------------------------------
-%   EXPERIENCE
-%----------------------------------------------------------------------------------------
-
-\cvsect{\cvjobexpsecname}
-\begin{entrylist}
-    \entry{\cvjobperiodmz}{\cvjobtitlemz}{\cvjobcompanymz}{\cvjobdescriptionmz}
-    \entry{\cvjobperioda}{\cvjobtitlea}{\cvjobcompanya}{\cvjobdescriptiona}
-    \entry{\cvjobperiodb}{\cvjobtitleb}{\cvjobcompanyb}{\cvjobdescriptionb}
-\end{entrylist}
-
-
-%----------------------------------------------------------------------------------------
-%   EDUCATION
-%----------------------------------------------------------------------------------------
-
-\cvsect{\cveducationsecname}
-\begin{entrylist}
-    \entry{\cvcourseperiodusp}{\cvcoursetitleusp}{\cvcourseinstitutionusp}{\cvcoursedescriptionusp}
-    \entry{\cvcourseperioda}{\cvcoursetitlea}{\cvcourseinstitutiona}{\cvcoursedescriptiona}
-\end{entrylist}
-
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Rivendel Technology}{Fev. 2018 -- Apr. 2019}
+      {Infrastructure developer}{São Paulo, SP}
+    \resumeItemListStart
+      \resumeItem {Developed several scripts and internal tools to simplify systems monitoring and anomaly detection}
+      \resumeItem {Assisted clients in the migration of their infrastructure from on-premise to cloud-based providers}
+      \resumeItem {Delivered security assessments and cost optimization strategies for clients on AWS}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
 \end{document}
