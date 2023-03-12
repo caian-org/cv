@@ -23,8 +23,6 @@ jobs:
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.ref }}
 
       - name: Build LaTeX documents using Docker
         run: cd document && make compile-from-image
