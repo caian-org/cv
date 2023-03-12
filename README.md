@@ -21,12 +21,12 @@ of the [`document`](document) directory; everything else is secondary (Docker im
 ## Build
 
 To build on your host machine, considering you're already have all the required dependencies (LaTeX, LuaTeX,
-[FontAwesome][fontawesome] and [Source Sans Pro][source-sans] font), just run `make` inside the `document` directory.
+[FontAwesome][fontawesome] and [Fira Sans][fira-sans] font), just run `make` inside the `document` directory.
 One PDF document will be built for each locale/translation.
 
-If you prefer not to download and install everything on host, the [`Makefile`](document/Makefile) has a simple recipe for it
-(again, be aware that the base image is __VERY LARGE__ and depending on your network and machine, it can take even hours
-to download & decompress). Just `make build-image` and `make build-docs` inside the `document` directory.
+If you prefer not to download and install everything on host, the [`Makefile`](document/Makefile) has a simple recipe
+for it (again, be aware that the base image is __VERY LARGE__ and depending on your network and machine, it can take
+even hours to download & decompress). Just `make compile-from-image` inside the `document` directory.
 
 [gh-bnc-shield]: https://img.shields.io/github/actions/workflow/status/caian-org/cv/upload.yml?label=build%20and%20update&logo=github&style=for-the-badge
 [gh-bnc-url]: https://github.com/caian-org/cv/actions/workflows/upload.yml
@@ -34,11 +34,11 @@ to download & decompress). Just `make build-image` and `make build-docs` inside 
 [tag-shield]: https://img.shields.io/github/tag/caian-org/cv.svg?logo=git&logoColor=FFF&style=for-the-badge
 [tag-url]: https://github.com/caian-org/cv/releases
 
-[arch-texlive]: https://github.com/caian-org/arch-texlive
+[arch-texlive]: https://github.com/caian-org/images/tree/master/arch-texlive
 [latex]: https://www.latex-project.org
 [luatex]: https://www.luatex.org
 [fontawesome]: https://fontawesome.com
-[source-sans]: https://fonts.google.com/specimen/Source+Sans+Pro
+[fira-sans]: https://fonts.google.com/specimen/Fira+Sans
 
 [en_US]: https://caian-org.s3.amazonaws.com/cv/cv-en_US.pdf
 [pt_BR]: https://caian-org.s3.amazonaws.com/cv/cv-pt_BR.pdf
