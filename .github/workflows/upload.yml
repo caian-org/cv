@@ -26,10 +26,8 @@ jobs:
         with:
           ref: ${{ github.ref }}
 
-      - name: Build LaTeX document
-        uses: ./.github/actions/build-latex-document
-        with:
-          docker-image-tag: compiled-docs:latest
+      - name: Build LaTeX documents using Docker
+        run: cd document && make compile-from-image
 
       - name: Upload documents
         run: cd document && make upload
