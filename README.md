@@ -5,17 +5,18 @@
 
 <img src=".github/space.gif" height="360px" align="right"/>
 
-My general résumé, in both english and portuguese, written in [__LaTeX__][latex] and compiled with [__LuaTeX__][luatex].
-This project also have a tiny pipeline which compiles the documents and push them into my public S3 bucket. The
-compilation is made through a docker container (see [`arch-texlive`][arch-texlive]) which have everything needed --
-around 11 GB of dependencies.
+My résumé (curriculum vitae), in both english and portuguese, written in [__LaTeX__][latex] and compiled with
+[__LuaTeX__][luatex]. This project also have a tiny pipeline that compiles the documents and push them into my public S3
+bucket. The compilation is made through a docker image (see [`arch-texlive`][arch-texlive]) which have everything needed
+-- around 11 GB of dependencies.
 
 You can see the compiled, final documents here:
 - [`cv-en_US.pdf`][en_US] _(english translation)_
 - [`cv-pt_BR.pdf`][pt_BR] _(portuguese translation)_
 
-If you wish to copy & reuse this and is already familiar with LaTeX and how to build documents, just copy the contents
-of the [`document`](document) directory; everything else is secondary (Docker images, CI pipelines etc).
+Full credits to [Leslie Cheng][leslie] for releasing [this template][original-template] for free. If you wish to copy &
+reuse this and is already familiar with LaTeX and how to build documents, just copy the contents of the
+[`document`](document) directory; everything else is secondary (Docker images, CI pipelines etc).
 
 
 ## Build
@@ -33,6 +34,9 @@ even hours to download & decompress). Just `make compile-from-image` inside the 
 
 [tag-shield]: https://img.shields.io/github/tag/caian-org/cv.svg?logo=git&logoColor=FFF&style=for-the-badge
 [tag-url]: https://github.com/caian-org/cv/releases
+
+[leslie]: https://github.com/lcfyi
+[original-template]: https://github.com/lcfyi/software-resume-template
 
 [arch-texlive]: https://github.com/caian-org/images/tree/master/arch-texlive
 [latex]: https://www.latex-project.org
