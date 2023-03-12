@@ -28,4 +28,10 @@ upload:
 
 
 clean:
-	@rm -rf *.pdf *.log *.aux *.out
+	@rm -rf \
+		*.pdf \
+		*.log \
+		*.aux \
+		*.out \
+		*.fls \
+		*.fdb_latexmk
