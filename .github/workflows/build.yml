@@ -2,14 +2,9 @@ name: build
 
 
 on:
-  push:
-    paths-ignore: '**.md'
-    branches: edge
-
   pull_request:
-    branches: '*'
-    tags: '*'
-    paths-ignore: '**.md'
+    branches: ['*']
+    paths-ignore: ['**.md']
 
   workflow_dispatch:
 
@@ -18,12 +13,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           ref: ${{ github.ref }}
 
       - name: Build LaTeX document
         uses: ./.github/actions/build-latex-document
         with:
-          docker-image-tag: compiled-docs:latest
+          docker-image-tag: 'compiled-docs:latest'

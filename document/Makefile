@@ -1,43 +1,37 @@
 .DEFAULT_GOAL := compile
 
-LATEX_DOCS = $(wildcard locales/*.tex)
+LATEX_DOCS = $(wildcard *.tex)
 COMPILED_PDFS = $(wildcard *.pdf)
 
 AWS_S3_BUCKET = caian-org
 DOCKER_IMAGE_TAGGED = compiled-docs:latest
 DOCKER_TMP_CONTAINER = compiled-cv
 
-pt: LATEX_DOCS=locales/pt_BR.tex
-pt: compile
-
-en: LATEX_DOCS=locales/en_US.tex
-en: compile
-
 
 compile:
-	@$(foreach d, $(LATEX_DOCS), \
-		lualatex \
-		-halt-on-error \
-		-jobname "cv-$(basename $(notdir $(d)))" \
-		"\input{$(d)} \input{cv.tex}" ;)
+	@$(foreach d, $(LATEX_DOCS), lualatex -halt-on-error "$(d)" ;)
 
 
-build-image:
+compile-from-image:
 	@cd .. && docker build -t $(DOCKER_IMAGE_TAGGED) .
-
-
-build-docs:
 	@docker run --name $(DOCKER_TMP_CONTAINER) $(DOCKER_IMAGE_TAGGED)
 	@$(foreach d, $(LATEX_DOCS), \
 		docker cp \
-			"$(DOCKER_TMP_CONTAINER):/home/turing/cv-$(basename $(notdir $(d))).pdf" . \
+			"$(DOCKER_TMP_CONTAINER):/home/turing/$(basename $(notdir $(d))).pdf" . \
 		;)
+	@docker rm $(DOCKER_TMP_CONTAINER)
 
 
-update-docs:
+upload:
 	@$(foreach f, $(COMPILED_PDFS), \
 		aws s3 cp --acl public-read "./$(f)" "s3://$(AWS_S3_BUCKET)/$(f)" ;)
 
 
 clean:
-	@rm -rf *.pdf *.log *.aux *.out
+	@rm -rf \
+		*.pdf \
+		*.log \
+		*.aux \
+		*.out \
+		*.fls \
+		*.fdb_latexmk

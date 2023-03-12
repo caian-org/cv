@@ -1,9 +1,11 @@
 name: build-latex-document
+description: 'Builds the LaTeX documents using Docker'
 
 
 inputs:
   docker-image-tag:
     required: true
+    description: ''
 
 
 runs:
@@ -18,5 +20,5 @@ runs:
         tags: ${{ inputs.docker-image-tag }}
 
     - name: Build
-      run: cd document && make build-docs
+      run: cd document && make compile-from-image
       shell: bash
