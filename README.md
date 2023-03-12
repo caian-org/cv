@@ -44,5 +44,5 @@ even hours to download & decompress). Just `make compile-from-image` inside the 
 [fontawesome]: https://fontawesome.com
 [fira-sans]: https://fonts.google.com/specimen/Fira+Sans
 
-[en_US]: https://caian-org.s3.amazonaws.com/cv/cv-en_US.pdf
-[pt_BR]: https://caian-org.s3.amazonaws.com/cv/cv-pt_BR.pdf
+[en_US]: https://caian-org.s3.amazonaws.com/cv-en_US.pdf
+[pt_BR]: https://caian-org.s3.amazonaws.com/cv-pt_BR.pdf
