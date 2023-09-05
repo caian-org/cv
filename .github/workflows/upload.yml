@@ -22,7 +22,7 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ASSUME_ROLE_ARN }}
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Build LaTeX documents using Docker
         run: cd document && make compile-from-image
