@@ -3,7 +3,7 @@
 
 # curriculum vitae
 
-<img src=".github/space.gif" height="360px" align="right"/>
+<img src=".github/space.gif" height="300px" align="right"/>
 
 My résumé (curriculum vitae), in both english and portuguese, written in [__LaTeX__][latex] and compiled with
 [__LuaTeX__][luatex]. This project also have a tiny pipeline that compiles the documents and push them into my public S3
